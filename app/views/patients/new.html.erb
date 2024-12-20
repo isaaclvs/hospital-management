@@ -1,0 +1,27 @@
+<h1>Register a New Patient</h1>
+
+<%= form_with model: @patient, local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_birth, "Date of Birth" %>
+    <%= form.date_select :date_of_birth %>
+  </div>
+
+  <div>
+    <%= form.submit "Register Patient" %>
+  </div>
+<% end %>

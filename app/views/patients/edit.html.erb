@@ -1,0 +1,28 @@
+<h1>Patients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Date of Birth</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= patient.email %></td>
+        <td><%= patient.phone %></td>
+        <td><%= patient.date_of_birth %></td>
+        <td>
+          <%= link_to 'Edit', edit_patient_path(patient) %> |
+          <%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add New Patient', new_patient_path %>
