@@ -1,3 +1,12 @@
-<h1>Welcome, Receptionist!</h1>
-<p>Here you can manage the information and controls available for receptionists.</p>
+<h1>Receptionist Dashboard</h1>
+
+<p>Welcome, <%= current_user.email %>!</p>
+
+<div>
+  <%= link_to "Create New Patient", new_patient_path, class: "btn btn-primary" %>
+</div>
+
+<div>
+  <%= link_to "View All Patients", patients_path, class: "btn btn-secondary" %>
+</div>
 
