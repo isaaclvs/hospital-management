@@ -18,16 +18,13 @@
         <td><%= patient.phone %></td>
         <td><%= patient.date_of_birth %></td>
         <td>
-          <!-- Botão para editar -->
           <% if policy(patient).update? %>
             <%= link_to "Edit", edit_patient_path(patient), class: "btn btn-warning" %>
           <% end %>
           
-          <!-- Botão para excluir -->
           <% if policy(patient).destroy? %>
-            <%= link_to "Delete", patient_path(patient), 
-                        method: :delete, 
-                        data: { confirm: "Are you sure?" }, 
+            <%= link_to "Delete", patient_path(patient),  
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, 
                         class: "btn btn-danger" %>
           <% end %>
         </td>
