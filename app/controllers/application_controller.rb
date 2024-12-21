@@ -8,14 +8,13 @@ class ApplicationController < ActionController::Base
     puts "User role: #{resource.role}"
     if resource.role == "receptionist"
       puts "Redirecting to receptionist_root_path"
-      receptionist_root_path
     elsif resource.role == "doctor"
       puts "Redirecting to doctor_root_path"
-      doctor_root_path
     else
       puts "Using default redirect"
       super
     end
+    root_path
   end
 
   protected

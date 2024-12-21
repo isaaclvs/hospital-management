@@ -1,3 +1,25 @@
-<h1>Welcome, Doctor!</h1>
-<p>Here you can manage the information and controls available for doctors.</p>
+<h1>Welcome to the Doctor's Dashboard</h1>
+
+<h2>List of Patients</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Date of Birth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.name %></td>
+        <td><%= patient.email %></td>
+        <td><%= patient.phone %></td>
+        <td><%= patient.date_of_birth %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 

@@ -11,7 +11,7 @@ class PatientPolicy < ApplicationJob
   end
 
   def index?
-    user.role == "receptionist"
+    user.role == "receptionist" || user.role == "doctor"
   end
 
   def edit?
@@ -19,7 +19,7 @@ class PatientPolicy < ApplicationJob
   end
 
   def show?
-    user.role == "receptionist"
+    user.role == "receptionist" || user.role == "doctor"
   end
 
   def create?

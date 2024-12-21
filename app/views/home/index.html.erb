@@ -1,1 +1,18 @@
-<h1>Welcome to the Hospital Management System</h1>
+<h1>Welcome to Hospital System</h1>
+
+<% if user_signed_in? %>
+  <p>Welcome, <%= current_user.email %></p>
+  <% if current_user.role == "doctor" %>
+    <h2>Hello Doctor</h2>
+    <%= link_to "Dashboard", doctor_dashboard_path %>
+  <% elsif current_user.role == "receptionist" %>
+    <h2>Hello Receptionist</h2>
+    <%= link_to "Dashboard", receptionist_dashboard_path %>
+  <% else %>
+    <p>You have no specific role assigned.</p>
+  <% end %>
+
+<% else %>
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>
+

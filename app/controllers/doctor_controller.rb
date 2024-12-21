@@ -3,6 +3,7 @@ class DoctorController < ApplicationController
   before_action :check_doctor_role
 
   def dashboard
+    @patients = Patient.all
   end
 
   private

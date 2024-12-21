@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
 
   def index
     @patients = Patient.all
-    authorize Patient
+    authorize @patients
   end
 
   def new

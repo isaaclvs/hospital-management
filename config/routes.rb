@@ -4,13 +4,15 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user, ->(user) { user.role == "receptionist" } do
-    root to: "receptionist#dashboard", as: :receptionist_root
+    get "receptionist/dashboard", to: "receptionist#dashboard", as: :receptionist_dashboard
     resources :appointments, only: [ :index, :show, :create ]
+    resources :patients
   end
 
   authenticated :user, ->(user) { user.role == "doctor" } do
-    root to: "doctor#dashboard", as: :doctor_root
+    get "doctor/dashboard", to: "doctor#dashboard", as: :doctor_dashboard
     resources :appointments, only: [ :index, :show, :create ]
+    resources :patients, only: [ :index, :show ]
   end
 
   resources :users, only: [ :show, :edit, :update ]
