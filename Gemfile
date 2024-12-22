@@ -32,6 +32,10 @@ gem "devise"
 
 gem "pundit"
 
+gem "chartkick"
+
+gem "groupdate"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
