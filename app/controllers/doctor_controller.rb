@@ -4,6 +4,7 @@ class DoctorController < ApplicationController
 
   def dashboard
     @patients = Patient.all
+    @patients_by_day = Patient.group_by_day(:created_at).count
   end
 
   private

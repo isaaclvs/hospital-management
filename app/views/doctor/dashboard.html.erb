@@ -22,4 +22,9 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<br>
+<h2>Patients Registered by Day</h2>
+
+<%= line_chart @patients_by_day, xtitle: "Date", ytitle: "Number of Patients" %>
 
