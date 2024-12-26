@@ -36,6 +36,10 @@ gem "chartkick"
 
 gem "groupdate"
 
+gem "tailwindcss-rails"
+
+gem "foreman"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
