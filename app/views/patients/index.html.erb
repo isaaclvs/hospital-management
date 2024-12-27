@@ -1,35 +1,38 @@
-<h1>Patients</h1>
+<h1 class="text-5xl font-extrabold dark:text-white">Patients</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Date of Birth</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @patients.each do |patient| %>
+<div class="relative overflow-x-auto my-10">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
-        <td><%= patient.name %></td>
-        <td><%= patient.email %></td>
-        <td><%= patient.phone %></td>
-        <td><%= patient.date_of_birth %></td>
-        <td>
-          <% if policy(patient).update? %>
-            <%= link_to "Edit", edit_patient_path(patient), class: "btn btn-warning" %>
-          <% end %>
-          
-          <% if policy(patient).destroy? %>
-            <%= link_to "Delete", patient_path(patient),  
-                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, 
-                        class: "btn btn-danger" %>
-          <% end %>
-        </td>
+        <th scope="col" class="px-6 py-3">Name</th>
+        <th scope="col" class="px-6 py-3">Email</th>
+        <th scope="col" class="px-6 py-3">Phone</th>
+        <th scope="col" class="px-6 py-3">Date of Birth</th>
+        <th scope="col" class="px-6 py-3">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @patients.each do |patient| %>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= patient.name %></th>
+          <td class="px-6 py-4"><%= patient.email %></td>
+          <td class="px-6 py-4"><%= patient.phone %></td>
+          <td class="px-6 py-4"><%= patient.date_of_birth %></td>
+          <td class="px-6 py-4">
+            <% if policy(patient).update? %>
+              <%= link_to "Edit", edit_patient_path(patient),
+                class: "btn btn-warning font-medium text-blue-600 dark:text-blue-500 hover:underline" %>
+            <% end %>
+            
+            <% if policy(patient).destroy? %>
+              <%= link_to "Delete", patient_path(patient),  
+                          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, 
+                          class: "btn btn-danger font-medium text-blue-600 dark:text-blue-500 hover:underline" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
