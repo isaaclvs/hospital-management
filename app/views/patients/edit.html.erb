@@ -1,29 +1,31 @@
-<h1>Edit Patient</h1>
+<h1 class="text-5xl font-extrabold dark:text-white">Edit Patient</h1>
 
-<%= form_with model: @patient, local: true do |form| %>
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control" %>
-  </div>
+<div class="max-w-md my-10">
+  <%= form_with model: @patient, local: true do |form| %>
+    <div class="relative z-0 w-full mb-5 group">
+      <%= form.text_field :name, id: "floating_name", class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+      <%= form.label :name, "Name", for: "floating_name", class: "peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :email %>
-    <%= form.email_field :email, class: "form-control" %>
-  </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <%= form.email_field :email, id: "floating_email", class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+      <%= form.label :email, "Email", for: "floating_email", class: "peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, class: "form-control" %>
-  </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <%= form.text_field :phone, id: "floating_phone", class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+      <%= form.label :phone, "Phone", for: "floating_phone", class: "peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :date_of_birth %>
-    <%= form.date_select :date_of_birth, class: "form-control" %>
-  </div>
+    <div class="relative z-0 w-full mb-5 group">
+      <%= form.date_select :date_of_birth, { prompt: { day: 'Day', month: 'Month', year: 'Year' } }, id: "floating_date_of_birth", class: "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" %>
+      <label for="floating_date_of_birth" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date of Birth</label>
+    </div>
 
-  <div class="form-group">
-    <%= form.submit "Save", class: "btn btn-primary" %>
-    <%= link_to "Cancel", patients_path, class: "btn btn-secondary" %>
-  </div>
-<% end %>
+    <div class="flex gap-4">
+      <%= form.submit "Save", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+      <%= link_to "Cancel", patients_path, class: "text-gray-700 bg-gray-200 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800" %>
+    </div>
+  <% end %>
+</div>
 
