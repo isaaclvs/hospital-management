@@ -1,10 +1,10 @@
-<h1 class="text-5xl font-extrabold dark:text-white">Welcome to the Doctor's Dashboard</h1>
+<h1 class="text-5xl font-extrabold text-white">Welcome to the Doctor's Dashboard</h1>
 
-<h2 class="text-4xl font-bold dark:text-white">List of Patients</h2>
+<h2 class="text-4xl font-bold text-white">List of Patients</h2>
 
 <div class="relative overflow-x-auto my-10">
   <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-zinc-200 dark:bg-gray-700 dark:text-gray-400">
       <tr>
         <th scope="col" class="px-6 py-3">Name</th>
         <th scope="col" class="px-6 py-3">Email</th>
@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <% @patients.each do |patient| %>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <tr class="border-b dark:bg-gray-800 dark:border-gray-700 bg-zinc-50">
           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= patient.name %></th>
           <td class="px-6 py-4"><%= patient.email %></td>
           <td class="px-6 py-4"><%= patient.phone %></td>
@@ -25,9 +25,9 @@
   </table>
 </div>
 
-<h2 class="text-4xl font-bold dark:text-white">Patients Registered by Day</h2>
+<h2 class="text-4xl font-bold text-white">Patients Registered by Day</h2>
 
-<div class="my-10">
+<div class="my-10 bg-gray-100">
   <%= line_chart @patients_by_day, xtitle: "Date", ytitle: "Number of Patients" %>
 </div>
 
