@@ -59,7 +59,6 @@ Web system developed in Ruby on Rails for patient management in medical offices,
 ## 🧪 Running Tests
 
 `bundle exec rspec`
-## 👥 User Roles
 
 ## 📊 Project Structure
 
